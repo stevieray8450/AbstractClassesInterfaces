@@ -12,6 +12,7 @@ namespace AbstractClassesInterfaces
         // private List<double> sideLengths = new List<double>();
         private double perimeter;
         private double area;
+        public List<double> SideLengths = new List<double>();
 
         public double NumOfSides
         {
@@ -30,15 +31,6 @@ namespace AbstractClassesInterfaces
             get { return area; }
             set { this.area = value; }
         }
-
-        //public List<double> SideLengths
-        //{
-        //    get { return sideLengths; }
-        //    set { sideLengths.Add = value; }
-        //}
-
-        public List<double> SideLengths = new List<double>();
-
 
         public void CalcPerimeter()
         {
@@ -69,9 +61,9 @@ namespace AbstractClassesInterfaces
             void CalcArea();
         }
 
-        class Rectangle : Polygon
+    class Rectangle : Polygon
     {
-       public Rectangle()
+        public Rectangle()
         {
             this.NumOfSides = 4;
         }
