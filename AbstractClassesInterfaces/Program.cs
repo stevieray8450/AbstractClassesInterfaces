@@ -50,49 +50,67 @@ namespace AbstractClassesInterfaces
 
         public void CalcArea()
         {
-            if (NumOfSides == 3)
+            // assumes sideLengths[0] is rectangle length and sideLengths[1] is rectangle width
+            if (this.NumOfSides == 4)
             {
-                // assumes sideLengths[0] is "base"
-                Area = .5 * (SideLengths[0] * SideLengths[1]);
-            }
-            else if (NumOfSides == 4)
-            {
-                // assumes sideLengths[0] is rectangle length and sideLengths[1] is rectangle width
                 Area = (SideLengths[0] * SideLengths[1]);
             }
-            else
+            // assumes sideLengths[0] is triangle base and sideLengths[1] is triangle height
+            else if (this.NumOfSides == 3)
             {
-                Console.WriteLine("At this time, polygons with more than 4 sides are not supported.");
+                Area = .5 * (SideLengths[0] * SideLengths[1]);
             }
-
         }
     }
 
-    public interface ICalc
-    {
-        void CalcPerimeter();
-        void CalcArea();
-    }
+        public interface ICalc
+        {
+            void CalcPerimeter();
+            void CalcArea();
+        }
 
-    class Rectangle : Polygon
+        class Rectangle : Polygon
     {
        public Rectangle()
         {
             this.NumOfSides = 4;
         }
     }
+
+    class Triangle : Polygon
+    {
+        public Triangle()
+        {
+            this.NumOfSides = 3;
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
             Rectangle r1 = new Rectangle();
-            Console.WriteLine("R1's number of sides: " + r1.NumOfSides);
+            Console.WriteLine("R1's number of sides: {0}", r1.NumOfSides);
             r1.SideLengths.Add(4);
             r1.SideLengths.Add(5);
             r1.SideLengths.Add(4);
             r1.SideLengths.Add(5);
             r1.CalcArea();
-            Console.WriteLine("R1's area: " + r1.Area);
+            Console.WriteLine("R1's area: {0}", r1.Area);
+            r1.CalcPerimeter();
+            Console.WriteLine("R1's perimeter: {0}", r1.Perimeter);
+
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Triangle t1 = new Triangle();
+            Console.WriteLine("T1's number of sides: {0}", t1.NumOfSides);
+            t1.SideLengths.Add(3);
+            t1.SideLengths.Add(2);
+            t1.SideLengths.Add(1);
+            Console.WriteLine("T1's area: {0}", t1.Area);
+            t1.CalcPerimeter();
+            Console.WriteLine("T1's perimeter: {0}", t1.Perimeter);
         }
     }
 }
