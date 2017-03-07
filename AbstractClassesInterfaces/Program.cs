@@ -97,9 +97,10 @@ namespace AbstractClassesInterfaces
 
             Triangle t1 = new Triangle();
             Console.WriteLine("T1's number of sides: {0}", t1.NumOfSides);
-            t1.SideLengths.Add(3);
-            t1.SideLengths.Add(2);
-            t1.SideLengths.Add(1);
+            t1.SideLengths.Add(20);
+            t1.SideLengths.Add(10);
+            t1.SideLengths.Add(15);
+            t1.CalcArea();
             Console.WriteLine("T1's area: {0}", t1.Area);
             t1.CalcPerimeter();
             Console.WriteLine("T1's perimeter: {0}", t1.Perimeter);
